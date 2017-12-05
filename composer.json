@@ -1,0 +1,39 @@
+{
+    "name": "naoray/currency-converter",
+    "description": "Converts currencies with fixer.io API.",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Naoray Kroaths",
+            "email": "krishan.koenig@googlemail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^5.5",
+        "kitetail/zttp": "^0.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Naoray\\CurrencyConverter\\": "./src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Naoray\\CurrencyConverter\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Naoray\\CurrencyConverter\\CurrencyConverterServiceProvider"
+            ],
+            "aliases": {
+                "Currency": "Naoray\\CurrencyConverter\\CurrencyConverterFacade"
+            }
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.5"
+    }
+}
