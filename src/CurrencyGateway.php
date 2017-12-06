@@ -2,6 +2,7 @@
 
 namespace Naoray\CurrencyConverter;
 
+use Illuminate\Support\Facades\Cache;
 use Naoray\CurrencyConverter\Contracts\HttpClient;
 
 class CurrencyGateway
@@ -40,9 +41,9 @@ class CurrencyGateway
      */
     public function latestRates()
     {
-        return $this->client->get(
-            $this->buildUrl('/latest')
-        );
+        $url = $this->buildUrl('/latest');
+
+        return $this->execute($url);
     }
 
     /**
@@ -51,9 +52,9 @@ class CurrencyGateway
      */
     public function historicalRates($date)
     {
-        return $this->client->get(
-            $this->buildUrl('/'.$date)
-        );
+        $url = $this->buildUrl('/'.$date);
+
+        return $this->execute($url);
     }
 
     /**
@@ -89,5 +90,16 @@ class CurrencyGateway
             return $url;
 
         return $url.'&symbols='.$this->currencyCodes;
+    }
+
+    /**
+     * @param $url
+     * @return mixed
+     */
+    private function execute($url)
+    {
+        return Cache::remember($url, config('currency.cache_duration'), function () use ($url) {
+            return $this->client->get($url);
+        });
     }
 }

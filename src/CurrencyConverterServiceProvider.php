@@ -3,6 +3,7 @@
 namespace Naoray\CurrencyConverter;
 
 use Illuminate\Support\ServiceProvider;
+use \Naoray\CurrencyConverter\Contracts\HttpClient as HttpClientContract;
 
 class CurrencyConverterServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,9 @@ class CurrencyConverterServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__.'/../config/currency.php' => config_path('currency.php'),
+        ], 'config');
     }
 
     /**
@@ -23,12 +26,12 @@ class CurrencyConverterServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        app()->bind('CurrencyGateway', function () {
-            return new CurrencyGateway(new HttpClient);
-        });
+        $this->mergeConfigFrom(__DIR__.'/../config/currency.php', 'currency');
 
-        app()->bind('currency', function() {
-            return new CurrencyManager(app()->make('CurrencyGateway'));
-        });
+        $this->app->bind(HttpClientContract::class, HttpClient::class);
+
+        $this->app->bind('CurrencyGateway', CurrencyGateway::class);
+
+        $this->app->bind('currency', CurrencyManager::class);
     }
 }
