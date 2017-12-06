@@ -28,6 +28,11 @@ class CurrencyGateway
     protected $currencyCodes;
 
     /**
+     * @var
+     */
+    protected $url;
+
+    /**
      * CurrencyGateway constructor.
      * @param HttpClient $client
      */
@@ -43,7 +48,10 @@ class CurrencyGateway
     {
         $url = $this->buildUrl('/latest');
 
-        return $this->execute($url);
+        if (Cache::has($url))
+            return false;
+
+        return $this->client->get($url);
     }
 
     /**
@@ -52,9 +60,9 @@ class CurrencyGateway
      */
     public function historicalRates($date)
     {
-        $url = $this->buildUrl('/'.$date);
-
-        return $this->execute($url);
+        return $this->client->get(
+            $this->buildUrl('/'.$date)
+        );
     }
 
     /**
@@ -87,19 +95,16 @@ class CurrencyGateway
         $url = $this->apiURI.$urlPath.'?base='.$this->base;
 
         if (! $this->currencyCodes)
-            return $url;
+            return $this->url = $url;
 
-        return $url.'&symbols='.$this->currencyCodes;
+        return $this->url = $url.'&symbols='.$this->currencyCodes;
     }
 
     /**
-     * @param $url
      * @return mixed
      */
-    private function execute($url)
+    public function getUrl()
     {
-        return Cache::remember($url, config('currency.cache_duration'), function () use ($url) {
-            return $this->client->get($url);
-        });
+        return $this->url;
     }
 }

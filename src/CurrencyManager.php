@@ -3,6 +3,7 @@
 namespace Naoray\CurrencyConverter;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 use Naoray\CurrencyConverter\Exceptions\NotAllowedException;
 
 class CurrencyManager
@@ -82,7 +83,16 @@ class CurrencyManager
     {
         $this->gateway->setCurrencyCodes($currencyCodes);
 
-        return $this->gateway->latestRates($currencyCodes)->json();
+        $jsonResult = $this->gateway->latestRates();
+
+        if (method_exists($jsonResult, 'json'))
+            $jsonResult = $jsonResult->json();
+
+        $url = $this->gateway->getUrl();
+
+        return Cache::remember($url, config('currency.cache_duration'), function () use ($jsonResult) {
+            return $jsonResult;
+        });
     }
 
     /**
