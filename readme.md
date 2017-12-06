@@ -4,6 +4,9 @@
 ## Install
 `composer require naoray/currency-converter`
 
+*optional*
+`php artisan vendor:publish --provider="Naoray\CurrencyConverter\CurrencyConverterServiceProvider"`
+
 ## Usage
 
 ```
