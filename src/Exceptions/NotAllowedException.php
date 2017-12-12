@@ -2,6 +2,6 @@
 
 namespace Naoray\CurrencyConverter\Exceptions;
 
-use http\Exception\RuntimeException;
+use RuntimeException;
 
 class NotAllowedException extends RuntimeException {}
