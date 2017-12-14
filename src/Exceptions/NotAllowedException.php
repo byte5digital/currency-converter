@@ -2,6 +2,6 @@
 
 namespace Naoray\CurrencyConverter\Exceptions;
 
-use PHPUnit\Framework\MockObject\RuntimeException;
+use RuntimeException;
 
 class NotAllowedException extends RuntimeException {}
