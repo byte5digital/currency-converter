@@ -1,9 +1,9 @@
 <?php
 
-namespace Naoray\CurrencyConverter\Test;
+namespace Byte5\CurrencyConverter\Test;
 
 use Carbon\Carbon;
-use Naoray\CurrencyConverter\Exceptions\NotAllowedException;
+use Byte5\CurrencyConverter\Exceptions\NotAllowedException;
 
 class ConverterTest extends TestCase
 {

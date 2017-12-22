@@ -1,9 +1,9 @@
 <?php
 
-namespace Naoray\CurrencyConverter;
+namespace Byte5\CurrencyConverter;
 
 use Zttp\Zttp;
-use \Naoray\CurrencyConverter\Contracts\HttpClient as HttpClientContract;
+use Byte5\CurrencyConverter\Contracts\HttpClient as HttpClientContract;
 
 class HttpClient implements HttpClientContract
 {

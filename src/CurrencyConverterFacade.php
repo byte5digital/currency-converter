@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\CurrencyConverter;
+namespace Byte5\CurrencyConverter;
 
 use Illuminate\Support\Facades\Facade;
 

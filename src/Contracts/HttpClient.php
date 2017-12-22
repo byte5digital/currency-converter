@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\CurrencyConverter\Contracts;
+namespace Byte5\CurrencyConverter\Contracts;
 
 interface HttpClient
 {

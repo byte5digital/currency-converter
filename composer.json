@@ -1,12 +1,12 @@
 {
-    "name": "naoray/currency-converter",
+    "name": "byte5digital/currency-converter",
     "description": "Converts currencies with fixer.io API.",
     "type": "package",
     "license": "MIT",
     "authors": [
         {
-            "name": "Naoray Kroaths",
-            "email": "krishan.koenig@googlemail.com"
+            "name": "Krishan König",
+            "email": "kkoenig@byte5.de"
         }
     ],
     "require": {
@@ -15,21 +15,24 @@
     },
     "autoload": {
         "psr-4": {
-            "Naoray\\CurrencyConverter\\": "./src"
+            "Byte5\\CurrencyConverter\\": "./src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Naoray\\CurrencyConverter\\Test\\": "tests"
+            "Byte5\\CurrencyConverter\\Test\\": "tests"
         }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Naoray\\CurrencyConverter\\CurrencyConverterServiceProvider"
+                "Byte5\\CurrencyConverter\\CurrencyConverterServiceProvider"
             ],
             "aliases": {
-                "Currency": "Naoray\\CurrencyConverter\\CurrencyConverterFacade"
+                "Currency": "Byte5\\CurrencyConverter\\CurrencyConverterFacade"
             }
         }
     },

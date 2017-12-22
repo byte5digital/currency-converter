@@ -1,9 +1,9 @@
 <?php
 
-namespace Naoray\CurrencyConverter;
+namespace Byte5\CurrencyConverter;
 
 use Illuminate\Support\ServiceProvider;
-use \Naoray\CurrencyConverter\Contracts\HttpClient as HttpClientContract;
+use Byte5\CurrencyConverter\Contracts\HttpClient as HttpClientContract;
 
 class CurrencyConverterServiceProvider extends ServiceProvider
 {

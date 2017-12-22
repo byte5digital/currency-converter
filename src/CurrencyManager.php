@@ -1,10 +1,10 @@
 <?php
 
-namespace Naoray\CurrencyConverter;
+namespace Byte5\CurrencyConverter;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
-use Naoray\CurrencyConverter\Exceptions\NotAllowedException;
+use Byte5\CurrencyConverter\Exceptions\NotAllowedException;
 
 class CurrencyManager
 {
