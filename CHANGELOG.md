@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- Dev [\#3](https://github.com/byte5digital/currency-converter/pull/3) ([Naoray](https://github.com/Naoray))
 - Create LICENSE [\#2](https://github.com/byte5digital/currency-converter/pull/2) ([Naoray](https://github.com/Naoray))
 
 ## [v1.1.2](https://github.com/byte5digital/currency-converter/tree/v1.1.2) (2017-12-14)
