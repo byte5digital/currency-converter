@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\CurrencyConverter\Test;
+namespace Byte5\CurrencyConverter\Test;
 
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -16,7 +16,7 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            \Naoray\CurrencyConverter\CurrencyConverterServiceProvider::class,
+            \Byte5\CurrencyConverter\CurrencyConverterServiceProvider::class,
         ];
     }
 

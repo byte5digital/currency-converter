@@ -1,9 +1,9 @@
 <?php
 
-namespace Naoray\CurrencyConverter;
+namespace Byte5\CurrencyConverter;
 
 use Illuminate\Support\Facades\Cache;
-use Naoray\CurrencyConverter\Contracts\HttpClient;
+use Byte5\CurrencyConverter\Contracts\HttpClient;
 
 class CurrencyGateway
 {

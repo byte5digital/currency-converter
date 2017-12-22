@@ -1,6 +1,6 @@
 <?php
 
-namespace Naoray\CurrencyConverter\Exceptions;
+namespace Byte5\CurrencyConverter\Exceptions;
 
 use RuntimeException;
 
