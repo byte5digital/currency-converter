@@ -3,6 +3,11 @@
     "description": "Converts currencies with fixer.io API.",
     "type": "package",
     "license": "MIT",
+    "keywords": [
+        "laravel",
+        "currency",
+        "converter"
+    ],
     "authors": [
         {
             "name": "Krishan König",
@@ -10,7 +15,7 @@
         }
     ],
     "require": {
-        "illuminate/support": "^5.6",
+        "illuminate/support": "5.6.*",
         "kitetail/zttp": "^0.3.0"
     },
     "autoload": {
