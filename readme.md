@@ -5,6 +5,8 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/byte5digital/currency-converter.svg?style=flat-square)](https://packagist.org/packages/byte5digital/currency-converter)
 
 ## Install
+*For < Laravel 5.6:* `composer require byte5digital/currency-converter:v1.1.2`
+
 `composer require byte5digital/currency-converter`
 
 *optional*
