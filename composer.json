@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "illuminate/support": "5.6.*",
+        "illuminate/support": "5.5.*",
         "kitetail/zttp": "^0.3.0"
     },
     "autoload": {
@@ -42,6 +42,6 @@
         }
     },
     "require-dev": {
-        "orchestra/testbench": "^3.6"
+        "orchestra/testbench": "^3.5"
     }
 }
