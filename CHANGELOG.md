@@ -1,5 +1,22 @@
 # Change Log
 
+## [Unreleased](https://github.com/byte5digital/currency-converter/tree/HEAD)
+
+[Full Changelog](https://github.com/byte5digital/currency-converter/compare/v1.2...HEAD)
+
+**Merged pull requests:**
+
+- Dev [\#6](https://github.com/byte5digital/currency-converter/pull/6) ([Naoray](https://github.com/Naoray))
+
+## [v1.2](https://github.com/byte5digital/currency-converter/tree/v1.2) (2018-02-21)
+[Full Changelog](https://github.com/byte5digital/currency-converter/compare/v1.1.5...v1.2)
+
+## [v1.1.5](https://github.com/byte5digital/currency-converter/tree/v1.1.5) (2018-02-21)
+[Full Changelog](https://github.com/byte5digital/currency-converter/compare/v1.1.4...v1.1.5)
+
+## [v1.1.4](https://github.com/byte5digital/currency-converter/tree/v1.1.4) (2018-02-08)
+[Full Changelog](https://github.com/byte5digital/currency-converter/compare/v1.1.3...v1.1.4)
+
 ## [v1.1.3](https://github.com/byte5digital/currency-converter/tree/v1.1.3) (2018-02-08)
 [Full Changelog](https://github.com/byte5digital/currency-converter/compare/v1.1.2...v1.1.3)
 
