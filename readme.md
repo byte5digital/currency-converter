@@ -11,8 +11,6 @@
 #### Laravel Version 5.5
 `composer require byte5digital/currency-converter:v1.1`
 
-`composer require byte5digital/currency-converter`
-
 *optional*
 `php artisan vendor:publish --provider="Byte5\CurrencyConverter\CurrencyConverterServiceProvider"`
 
