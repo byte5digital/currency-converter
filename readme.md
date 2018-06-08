@@ -4,12 +4,15 @@
 [![Travis](https://img.shields.io/travis/byte5digital/currency-converter.svg?style=flat-square)]()
 [![Total Downloads](https://img.shields.io/packagist/dt/byte5digital/currency-converter.svg?style=flat-square)](https://packagist.org/packages/byte5digital/currency-converter)
 
+**Important**:
+Since [fixer.io](https://fixer.io) updated their API you have to register for an account to use this package! This package does not support premium features of fixer.io yet! If you are using fixer.io premium's features, you might not even need this package anymore => take a look at the `/convert` endpoint.
+
 ## Install
 #### Laravel Version 5.6+
 `composer require byte5digital/currency-converter`
 
-#### Laravel Version 5.5
-`composer require byte5digital/currency-converter:v1.1`
+in your `.env` add your fixer.io api key
+`FIXER_API_KEY=Your_api_key`
 
 *optional*
 `php artisan vendor:publish --provider="Byte5\CurrencyConverter\CurrencyConverterServiceProvider"`
@@ -36,6 +39,8 @@ Currency::getHistoricalRates('2000-01-03', ['USD', 'GBP']);
 ```
 
 ## Testing
+**currently not working** => did not have the time to update tests after fixer.io Api update.
+
 Run the tests with:
 
 ``` bash

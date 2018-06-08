@@ -10,7 +10,7 @@ class CurrencyGateway
     /**
      * @var string
      */
-    protected $apiURI = 'https://api.fixer.io';
+    protected $apiURI = 'data.fixer.io';
 
     /**
      * @var string
@@ -48,8 +48,9 @@ class CurrencyGateway
     {
         $url = $this->buildUrl('/latest');
 
-        if (Cache::has($url))
+        if (Cache::has($url)) {
             return false;
+        }
 
         return $this->client->get($url);
     }
@@ -61,7 +62,7 @@ class CurrencyGateway
     public function historicalRates($date)
     {
         return $this->client->get(
-            $this->buildUrl('/'.$date)
+            $this->buildUrl('/' . $date)
         );
     }
 
@@ -92,12 +93,14 @@ class CurrencyGateway
      */
     private function buildUrl($urlPath)
     {
-        $url = $this->apiURI.$urlPath.'?base='.$this->base;
+        $url = config('currency.use_free_plan') ? 'http://' : 'https://';
+        $url .= $this->apiURI . $urlPath . '?access_key=' . config('currency.api_key') . '&base=' . $this->base;
 
-        if (! $this->currencyCodes)
+        if (!$this->currencyCodes) {
             return $this->url = $url;
+        }
 
-        return $this->url = $url.'&symbols='.$this->currencyCodes;
+        return $this->url = $url . '&symbols=' . $this->currencyCodes;
     }
 
     /**

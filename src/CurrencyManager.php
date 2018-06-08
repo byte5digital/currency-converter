@@ -12,8 +12,8 @@ class CurrencyManager
      * @var array
      */
     protected $allowedCurrencies = [
-        "AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK", "DKK", "EUR", "GBP", "HKD", "HRK", "HUF", "IDR","ILS", "INR",
-        "JPY", "KRW", "MXN", "MYR","NOK","NZD","PHP","PLN","RON","RUB","SEK","SGD","THB","TRY","USD","ZAR"
+        'AUD', 'BGN', 'BRL', 'CAD', 'CHF', 'CNY', 'CZK', 'DKK', 'EUR', 'GBP', 'HKD', 'HRK', 'HUF', 'IDR', 'ILS', 'INR',
+        'JPY', 'KRW', 'MXN', 'MYR', 'NOK', 'NZD', 'PHP', 'PLN', 'RON', 'RUB', 'SEK', 'SGD', 'THB', 'TRY', 'USD', 'ZAR'
     ];
 
     /**
@@ -49,13 +49,13 @@ class CurrencyManager
      */
     public function convert($amount, $from, $into = null)
     {
-        if (! $this->isAllowedCode($from) || ($into != null && ! $this->isAllowedCode($into))) {
+        if (!$this->isAllowedCode($from) || ($into != null && !$this->isAllowedCode($into))) {
             $this->throwNotAllowedException("$from or $into");
         }
 
         $this->setBase($from)->setAmount($amount);
 
-        if (! $into) {
+        if (!$into) {
             return $this;
         }
 
@@ -85,9 +85,11 @@ class CurrencyManager
 
         $jsonResult = $this->gateway->latestRates();
 
-        if (method_exists($jsonResult, 'json'))
+        if (method_exists($jsonResult, 'json')) {
             $jsonResult = $jsonResult->json();
+        }
 
+        dd($jsonResult);
         $url = $this->gateway->getUrl();
 
         return Cache::remember($url, config('currency.cache_duration'), function () use ($jsonResult) {
@@ -125,7 +127,7 @@ class CurrencyManager
      */
     public function setBase($currencyCode)
     {
-        if (! $this->isAllowedCode($currencyCode)) {
+        if (!$this->isAllowedCode($currencyCode)) {
             $this->throwNotAllowedException($currencyCode);
         }
 
